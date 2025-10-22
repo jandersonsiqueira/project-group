@@ -14,7 +14,7 @@ app.get("/api/grupo", async (req, res) => {
 
     const sheets = google.sheets({ version: "v4", auth });
     const spreadsheetId = process.env.SHEET_ID;
-    const range = "Página1!B:C"; // ajuste para o nome da aba correta
+    const range = "Página1!B:C"; 
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId,
