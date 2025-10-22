@@ -1,11 +1,9 @@
-import express from "express";
 import dotenv from "dotenv";
 import { google } from "googleapis";
 
 dotenv.config();
-const app = express();
 
-app.get("/api/grupo", async (req, res) => {
+export default async function handler(req, res) {
   try {
     const auth = new google.auth.GoogleAuth({
       credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT),
@@ -14,7 +12,7 @@ app.get("/api/grupo", async (req, res) => {
 
     const sheets = google.sheets({ version: "v4", auth });
     const spreadsheetId = process.env.SHEET_ID;
-    const range = "Página1!B:C"; 
+    const range = "Página1!B:C";
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId,
@@ -36,7 +34,4 @@ app.get("/api/grupo", async (req, res) => {
     console.error(err);
     res.status(500).send("Erro ao buscar grupo.");
   }
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🚀 Servidor rodando em http://localhost:${PORT}`));
+}
