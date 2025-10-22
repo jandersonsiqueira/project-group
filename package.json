@@ -1,0 +1,21 @@
+{
+  "name": "project-group",
+  "version": "1.0.0",
+  "main": "api/group.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node api/group.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "googleapis": "^164.1.0"
+  },
+  "devDependencies": {
+    "vercel": "^48.5.0"
+  }
+}
